@@ -7,6 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "elroi",
     "userInterfaceStyle": "automatic",
+    "description": "Created so that men at ccgc could show themselves to be a pattern of good works. ",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
