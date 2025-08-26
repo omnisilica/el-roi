@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   const styles = StyleSheet.create({
@@ -10,9 +10,9 @@ export default function Index() {
   });
 
   return (
-    <View>
-      <View className="my-9">
-        <Text>
+    <ScrollView>
+      <View className="my-9 mx-9">
+        <Text className="text-xl">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry&apos;s standard dummy text
           ever since the 1500s, when an unknown printer took a galley of type
@@ -23,7 +23,7 @@ export default function Index() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </Text>
-        <Text>
+        <Text className="my-3 text-xl">
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
           has roots in a piece of classical Latin literature from 45 BC, making
           it over 2000 years old. Richard McClintock, a Latin professor at
@@ -37,7 +37,7 @@ export default function Index() {
           first line of Lorem Ipsum, &rdquo;Lorem ipsum dolor sit amet..&rdquo;,
           comes from a line in section 1.10.32.
         </Text>
-        <Text>
+        <Text className="my-3 text-xl">
           The standard chunk of Lorem Ipsum used since the 1500s is reproduced
           below for those interested. Sections 1.10.32 and 1.10.33 from
           &rdquo;de Finibus Bonorum et Malorum&rdquo; by Cicero are also
@@ -46,6 +46,6 @@ export default function Index() {
         </Text>
       </View>
       <View></View>
-    </View>
+    </ScrollView>
   );
 }
