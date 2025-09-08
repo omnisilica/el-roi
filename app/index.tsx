@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Text, View } from "react-native";
+import { Dimensions, Image, ScrollView, Text, View } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import Carousel, {
   ICarouselInstance,
@@ -26,6 +26,7 @@ const data = [
   },
 ];
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 function Index() {
   const ref = React.useRef<ICarouselInstance>(null);
@@ -43,43 +44,64 @@ function Index() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: "rgba(54, 138, 156, 0.8)" }}>
+    <View className="flex-1 bg-homePageBackground">
+      <View className="h-32 bg-yellow-500">
+        <Image
+          className="w-[100%] h-[100%] object-contain"
+          source={require("./../assets/images/ccgc_logo.png")}
+        />
+      </View>
       <Carousel
         ref={ref}
         width={width}
-        height={(width / 2) * 2.5}
+        height={height * 0.36}
         data={data}
         onProgressChange={progress}
+        style={{
+          backgroundColor: "#fafafa",
+          // flex: 1,
+          // justifyContent: "center",
+          // maxHeight: height * 0.36,
+          minWidth: "100%",
+          // borderWidth: 1,
+        }}
+        onConfigurePanGesture={(gestureChain) =>
+          gestureChain.activeOffsetX([-10, 10])
+        }
         renderItem={({ index }) => (
           <View
+            className="flex-1"
             style={{
               flex: 1,
-              borderWidth: 1,
-              justifyContent: "center",
-              borderBottomLeftRadius: 25,
-              borderBottomRightRadius: 25,
-              backgroundColor: "#fff",
             }}
           >
-            <Text style={{ textAlign: "center", fontSize: 15 }}>
+            <Text className="text-center text-3xl mx-24 h-20">
               {data[index].title}
             </Text>
-            <Text style={{ textAlign: "center", fontSize: 15 }}>
-              {data[index].body}
-            </Text>
-            <Pagination.Basic
-              progress={progress}
-              data={data}
-              dotStyle={{
-                backgroundColor: "rgba(54, 138, 156, 1)",
-                borderRadius: 50,
-              }}
-              containerStyle={{ gap: 5, marginTop: 10 }}
-              onPress={onPressPagination}
-            />
+            <ScrollView
+              className="flex-1 h-20 m-6"
+              scrollEnabled={true}
+              nestedScrollEnabled={true}
+            >
+              <Text className="text-left text-lg truncate">
+                {data[index].body}
+              </Text>
+            </ScrollView>
           </View>
         )}
       />
+      <View className="h-10 bg-white rounded-b-full">
+        <Pagination.Basic
+          progress={progress}
+          data={data}
+          dotStyle={{
+            backgroundColor: "rgba(54, 138, 156, 1)",
+            borderRadius: 50,
+          }}
+          containerStyle={{ gap: 5, marginTop: 10 }}
+          onPress={onPressPagination}
+        />
+      </View>
     </View>
   );
 }

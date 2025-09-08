@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: "#030014",
         secondary: "#151312",
+        homePageBackground: "rgba(237, 233, 254, 1)",
         light: {
           100: "#D6C6FF",
           200: "#A8B5DB",
