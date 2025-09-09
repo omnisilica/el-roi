@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Dimensions, Image, ScrollView, Text, View } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
@@ -69,24 +70,17 @@ function Index() {
           gestureChain.activeOffsetX([-10, 10])
         }
         renderItem={({ index }) => (
-          <View
-            className="flex-1"
-            style={{
-              flex: 1,
-            }}
-          >
+          <View className="flex-1 mb-7">
             <Text className="text-center text-3xl mx-24 h-20">
               {data[index].title}
             </Text>
-            <ScrollView
-              className="flex-1 h-20 m-6"
-              scrollEnabled={true}
-              nestedScrollEnabled={true}
-            >
-              <Text className="text-left text-lg truncate">
-                {data[index].body}
-              </Text>
+            <ScrollView className="flex-1 h-20 mx-6 mt-6">
+              <Text className="text-left text-lg pb-7">{data[index].body}</Text>
             </ScrollView>
+            <LinearGradient
+              colors={["transparent", "rgba(250,250,250,1)"]}
+              className="w-[100%] h-7 absolute bottom-0"
+            />
           </View>
         )}
       />
