@@ -1,6 +1,14 @@
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
-import { Dimensions, Image, ScrollView, Text, View } from "react-native";
+import {
+  Alert,
+  Dimensions,
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import Carousel, {
   ICarouselInstance,
@@ -44,11 +52,15 @@ function Index() {
     });
   };
 
+  const onPressLogIn = () => {
+    Alert.alert("Log In button pressed.");
+  };
+
   return (
-    <View className="flex-1 bg-homePageBackground">
-      <View className="h-32 bg-yellow-500">
+    <View className="flex-1 bg-ccgcBlueLight">
+      <View className="h-32 bg-commonWhite justify-center items-center">
         <Image
-          className="w-[100%] h-[100%] object-contain"
+          className="w-[110%] h-full scale-[0.15] mt-12"
           source={require("./../assets/images/ccgc_logo.png")}
         />
       </View>
@@ -75,7 +87,9 @@ function Index() {
               {data[index].title}
             </Text>
             <ScrollView className="flex-1 h-20 mx-6 mt-6">
-              <Text className="text-left text-lg pb-7">{data[index].body}</Text>
+              <Text className="text-left text-lg pb-7 text-homePageText">
+                {data[index].body}
+              </Text>
             </ScrollView>
             <LinearGradient
               colors={["transparent", "rgba(250,250,250,1)"]}
@@ -84,17 +98,48 @@ function Index() {
           </View>
         )}
       />
-      <View className="h-10 bg-white rounded-b-full">
+      <View className="h-10 bg-commonWhite rounded-b-full">
         <Pagination.Basic
           progress={progress}
           data={data}
           dotStyle={{
-            backgroundColor: "rgba(54, 138, 156, 1)",
+            width: 8,
+            height: 8,
+            backgroundColor: "rgba(54, 138, 156, 0.1)",
             borderRadius: 50,
           }}
+          activeDotStyle={{ backgroundColor: "rgba(54, 138, 156, 1)" }}
           containerStyle={{ gap: 5, marginTop: 10 }}
           onPress={onPressPagination}
         />
+      </View>
+      <View className="w-11/12 items-center m-auto my-7">
+        <Pressable
+          onPress={onPressLogIn}
+          className="bg-commonWhite h-14 w-[100%] items-center justify-center rounded"
+        >
+          <Text className=" text-ccgcBlue text-lg">LOG IN</Text>
+        </Pressable>
+        <View className="flex-row items-center">
+          <View className="flex-1 h-[1] bg-black"></View>
+          <View>
+            <Text className="w-16 text-center">OR</Text>
+          </View>
+          <View className="flex-1 h-[1] bg-black"></View>
+        </View>
+        <Pressable
+          onPress={onPressLogIn}
+          className="bg-transparent h-14 w-[100%] items-center justify-center rounded border-2 border-ccgcBlue"
+        >
+          <Text className="text-lg text-ccgcBlue p-0 m-0">
+            SUBMIT A REQUEST
+          </Text>
+        </Pressable>
+      </View>
+      <View className="bg-white h-20 w-full absolute bottom-0 justify-center items-center">
+        <Text className="text-lg text-homePageText">
+          Don&#39;t have an account? Sign Up.
+        </Text>
       </View>
     </View>
   );

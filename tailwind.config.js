@@ -7,7 +7,11 @@ module.exports = {
       colors: {
         primary: "#030014",
         secondary: "#151312",
+        commonWhite: "rgba(250,250,250,1)",
         homePageBackground: "rgba(237, 233, 254, 1)",
+        homePageText: "rgba(79,79,79,1)",
+        ccgcBlue: "rgba(54, 138, 156, 1)",
+        ccgcBlueLight: "rgba(54, 138, 156, 0.1)",
         light: {
           100: "#D6C6FF",
           200: "#A8B5DB",
