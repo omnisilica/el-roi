@@ -1,7 +1,7 @@
 import { LinearGradient } from "expo-linear-gradient";
+import { Link } from "expo-router";
 import React from "react";
 import {
-  Alert,
   Dimensions,
   Image,
   Pressable,
@@ -15,7 +15,6 @@ import Carousel, {
   Pagination,
 } from "react-native-reanimated-carousel";
 
-// const data = [...new Array(6).keys()];
 const data = [
   {
     title: "About El Roi",
@@ -52,10 +51,6 @@ function Index() {
     });
   };
 
-  const onPressLogIn = () => {
-    Alert.alert("Log In button pressed.");
-  };
-
   return (
     <View className="flex-1 bg-ccgcBlueLight">
       <View className="h-32 bg-commonWhite justify-center items-center">
@@ -72,11 +67,7 @@ function Index() {
         onProgressChange={progress}
         style={{
           backgroundColor: "#fafafa",
-          // flex: 1,
-          // justifyContent: "center",
-          // maxHeight: height * 0.36,
           minWidth: "100%",
-          // borderWidth: 1,
         }}
         onConfigurePanGesture={(gestureChain) =>
           gestureChain.activeOffsetX([-10, 10])
@@ -114,12 +105,11 @@ function Index() {
         />
       </View>
       <View className="w-11/12 items-center m-auto my-7">
-        <Pressable
-          onPress={onPressLogIn}
-          className="bg-commonWhite h-14 w-[100%] items-center justify-center rounded"
-        >
-          <Text className=" text-ccgcBlue text-lg">LOG IN</Text>
-        </Pressable>
+        <Link href="./LogIn" asChild>
+          <Pressable className="bg-commonWhite h-14 w-[100%] items-center justify-center rounded">
+            <Text className=" text-ccgcBlue text-lg">LOG IN</Text>
+          </Pressable>
+        </Link>
         <View className="flex-row items-center">
           <View className="flex-1 h-[1] bg-black"></View>
           <View>
@@ -127,18 +117,26 @@ function Index() {
           </View>
           <View className="flex-1 h-[1] bg-black"></View>
         </View>
-        <Pressable
-          onPress={onPressLogIn}
-          className="bg-transparent h-14 w-[100%] items-center justify-center rounded border-2 border-ccgcBlue"
-        >
-          <Text className="text-lg text-ccgcBlue p-0 m-0">
-            SUBMIT A REQUEST
-          </Text>
-        </Pressable>
+        <Link href="./SubmitRequest" asChild>
+          <Pressable className="bg-transparent h-14 w-[100%] items-center justify-center rounded border-2 border-ccgcBlue">
+            <Text className="text-lg text-ccgcBlue p-0 m-0">
+              SUBMIT A REQUEST
+            </Text>
+          </Pressable>
+        </Link>
       </View>
-      <View className="bg-white h-20 w-full absolute bottom-0 justify-center items-center">
+      <View className="bg-white h-20 w-full absolute bottom-0 justify-center items-center rounded-t-full">
         <Text className="text-lg text-homePageText">
-          Don&#39;t have an account? Sign Up.
+          Don&#39;t have an account?{" "}
+          <Link
+            href="./SignUp"
+            className="text-[#3366cc] font-bold"
+            accessible={true}
+            accessibilityLabel="Sign up for an account"
+          >
+            Sign Up
+          </Link>
+          {"."}
         </Text>
       </View>
     </View>
