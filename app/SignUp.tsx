@@ -1,6 +1,6 @@
 import React from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { Button, Text, TextInput, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 
 {
   /*
@@ -24,7 +24,13 @@ import { Button, Text, TextInput, View } from "react-native";
    - should match password
   */
 }
-
+type SignUpDetails = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 function SignUp() {
   const {
     register,
@@ -37,20 +43,10 @@ function SignUp() {
       firstName: "",
       lastName: "",
       email: "",
-      address: "",
       password: "",
       confirmPassword: "",
     },
   });
-
-  type SignUpDetails = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    address: string;
-    password: string;
-    confirmPassword: string;
-  };
 
   const signInBackgroundImage = require("./../assets/images/ccgc_sign_up_background.jpg");
 
@@ -84,7 +80,6 @@ function SignUp() {
   console.log(watch("firstName"));
   console.log(watch("lastName"));
   console.log(watch("email"));
-  console.log(watch("address"));
   console.log(watch("password"));
   console.log(watch("confirmPassword"));
 
@@ -189,7 +184,9 @@ function SignUp() {
         name="confirmPassword"
       />
       {errors.confirmPassword && <Text>{errors.confirmPassword.message} </Text>}
-      <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      <Pressable onPress={handleSubmit(onSubmit)}>
+        <Text>Submit</Text>
+      </Pressable>
     </View>
   );
 }
