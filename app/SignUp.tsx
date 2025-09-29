@@ -5,7 +5,6 @@ import {
   Image,
   ImageBackground,
   Pressable,
-  StyleSheet,
   Text,
   TextInput,
   View,
@@ -40,35 +39,6 @@ type SignUpDetails = {
   password: string;
   confirmPassword: string;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  blurContainer: {
-    flex: 1,
-    padding: 20,
-    margin: 16,
-    textAlign: "center",
-    justifyContent: "center",
-    overflow: "hidden",
-    borderRadius: 20,
-  },
-  box: {
-    width: "25%",
-    height: "20%",
-  },
-  boxEven: {
-    backgroundColor: "orangered",
-  },
-  boxOdd: {
-    backgroundColor: "gold",
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: "600",
-  },
-});
 
 function SignUp() {
   const {
@@ -146,9 +116,13 @@ function SignUp() {
             </View>
 
             <View className="w-11/12 m-auto">
-              <Text className="text-lg text-ccgcBlue">Welcome!</Text>
-              <Text className="text-2xl font-bold text-ccgcBlue">Sign up</Text>
-              <Text className="text-xl mt-2">First Name:</Text>
+              <Text className="text-lg text-[rgb(118,192,208,1)] mt-3.5">
+                Welcome!
+              </Text>
+              <Text className="text-2xl font-bold text-[rgb(118,192,208,1)]">
+                Sign up
+              </Text>
+              <Text className="text-xl mt-2 text-commonWhite">First Name:</Text>
               <Controller
                 control={control}
                 {...register("firstName", {
@@ -160,18 +134,18 @@ function SignUp() {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    className="border-2 border-ccgcBlue"
+                    className="border-2 border-[rgb(118,192,208,1)]"
                   />
                 )}
                 name="firstName"
               />
               {errors.firstName && (
-                <Text role="alert" className="mb-2">
+                <Text role="alert" className="text-[rgba(236,162,162,1)] mb-2">
                   {errors.firstName.message}
                 </Text>
               )}
 
-              <Text className="text-xl mt-2">Last Name:</Text>
+              <Text className="text-xl mt-2 text-commonWhite">Last Name:</Text>
               <Controller
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
@@ -180,13 +154,13 @@ function SignUp() {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    className="border-2 border-ccgcBlue"
+                    className="border-2 border-[rgb(118,192,208,1)]"
                   />
                 )}
                 name="lastName"
               />
 
-              <Text className="text-xl mt-2">Email:</Text>
+              <Text className="text-xl mt-2 text-commonWhite">Email:</Text>
               <Controller
                 control={control}
                 {...register("email", {
@@ -205,16 +179,18 @@ function SignUp() {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    className="border-2 border-ccgcBlue"
+                    className="border-2 border-[rgb(118,192,208,1)]"
                   />
                 )}
                 name="email"
               />
               {errors.email && (
-                <Text className="mb-2">{errors.email.message} </Text>
+                <Text className="text-[rgba(236,162,162,1)] mb-2">
+                  {errors.email.message}{" "}
+                </Text>
               )}
 
-              <Text className="text-xl mt-2">Password:</Text>
+              <Text className="text-xl mt-2 text-commonWhite">Password:</Text>
               <Controller
                 control={control}
                 {...register("password", {
@@ -234,16 +210,20 @@ function SignUp() {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    className="border-2 border-ccgcBlue"
+                    className="border-2 border-[rgb(118,192,208,1)]"
                   />
                 )}
                 name="password"
               />
               {errors.password && (
-                <Text className="mb-2">{errors.password.message} </Text>
+                <Text className="text-[rgba(236,162,162,1)] mb-2">
+                  {errors.password.message}{" "}
+                </Text>
               )}
 
-              <Text className="text-xl mt-2">Confirm Password:</Text>
+              <Text className="text-xl mt-2 text-commonWhite">
+                Confirm Password:
+              </Text>
               <Controller
                 control={control}
                 {...register("confirmPassword", {
@@ -259,20 +239,22 @@ function SignUp() {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
-                    className="border-2 border-ccgcBlue"
+                    className="border-2 border-[rgb(118,192,208,1)]"
                   />
                 )}
                 name="confirmPassword"
               />
               {errors.confirmPassword && (
-                <Text className="mb-2">{errors.confirmPassword.message} </Text>
+                <Text className="text-[rgba(236,162,162,1)] mb-2">
+                  {errors.confirmPassword.message}{" "}
+                </Text>
               )}
             </View>
             <Pressable
               onPress={handleSubmit(onSubmit)}
               className="bg-commonWhite h-14 w-[100%] mt-6 items-center justify-center rounded"
             >
-              <Text className=" text-ccgcBlue text-lg">
+              <Text className="text-[rgba(33,92,105,1)] text-lg">
                 Create Your Account
               </Text>
             </Pressable>
