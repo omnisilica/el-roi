@@ -84,16 +84,12 @@ function SignUp() {
     }
   };
 
-  const onSubmit: SubmitHandler<SignUpDetails> = (data) => {
+  const onSignUpSubmit: SubmitHandler<SignUpDetails> = (data) => {
     console.log(data);
     router.navigate("./Dashboard");
   };
 
-  console.log(watch("firstName"));
-  console.log(watch("lastName"));
-  console.log(watch("email"));
-  console.log(watch("password"));
-  console.log(watch("confirmPassword"));
+  // console.log(watch("firstName"));
 
   return (
     <View className="bg-gray-700 h-full w-full">
@@ -251,7 +247,7 @@ function SignUp() {
               )}
             </View>
             <Pressable
-              onPress={handleSubmit(onSubmit)}
+              onPress={handleSubmit(onSignUpSubmit)}
               className="bg-commonWhite h-14 w-[100%] mt-6 items-center justify-center rounded"
             >
               <Text className="text-[rgba(33,92,105,1)] text-lg">
