@@ -10,28 +10,6 @@ import {
   View,
 } from "react-native";
 
-{
-  /*
-  > First name:
-   - required
-  > Last name:
-  > Email:
-   - required
-   - has to be an email
-   - confirm password doesn't exist before form submission
-  > Address:
-  > Password:
-   - required
-   - at least 8 chars
-   - at least 1 letter
-   - at least 1 number
-   - at least 1 captial letter
-   - at least 1 lower case
-  > Confrim Password:
-   - required
-   - should match password
-  */
-}
 type SignUpDetails = {
   firstName: string;
   lastName: string;
@@ -60,15 +38,6 @@ function SignUp() {
   const signInBackgroundImage = require("./../assets/images/ccgc_sign_up_background.jpg");
 
   const validatePassword = (value: string) => {
-    /*
-  > Password:
-   - required
-   - at least 8 chars [check]
-   - at least 1 letter [check]
-   - at least 1 number [check]
-   - at least 1 captial letter [check]
-   - at least 1 lower case [check]
-  */
     if (!/[a-z]/.test(value)) {
       return "Password must contain at least one lowercase letter.";
     } else if (!/[A-Z]/.test(value)) {
