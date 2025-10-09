@@ -91,7 +91,7 @@ function LogIn() {
                 })}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    placeholder="email"
+                    placeholder="user1@email.com"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
@@ -117,7 +117,7 @@ function LogIn() {
                 })}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    placeholder="Password"
+                    placeholder="Password0"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}

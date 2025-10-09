@@ -140,7 +140,7 @@ function SignUp() {
                 })}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    placeholder="email"
+                    placeholder="email@example.com"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}
@@ -171,7 +171,7 @@ function SignUp() {
                 })}
                 render={({ field: { onChange, onBlur, value } }) => (
                   <TextInput
-                    placeholder="Password"
+                    placeholder="Password0"
                     onBlur={onBlur}
                     onChangeText={onChange}
                     value={value}

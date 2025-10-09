@@ -2,13 +2,13 @@ import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 
-function Dashboard() {
+function Chat() {
   return (
     <View>
-      <Text>Dashboard Under Construction</Text>
-      <Link href="./Chatrooms.tsx">My Messages</Link>
+      <Text>Chatrooms Under Construction</Text>
+      <Link href="./Chat.tsx">Jon&lsquo;s Messages</Link>
     </View>
   );
 }
 
-export default Dashboard;
+export default Chat;
