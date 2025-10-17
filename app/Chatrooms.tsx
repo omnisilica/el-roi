@@ -2,7 +2,7 @@ import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 
-function Chat() {
+function Chatrooms() {
   return (
     <View>
       <Text>Chatrooms Under Construction</Text>
@@ -11,4 +11,4 @@ function Chat() {
   );
 }
 
-export default Chat;
+export default Chatrooms;
