@@ -9,14 +9,11 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 function Chat() {
   const textInputRef = React.useRef<TextInput>(null);
   const [messageContent, setMessageContent] = React.useState("");
-  const [dataUserId, setDataUserId] = React.useState(8);
-  const height = useHeaderHeight();
-  const messages = [
+  const [messages, setMessages] = React.useState([
     {
       userId: "user1",
       content:
@@ -27,7 +24,21 @@ function Chat() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     },
-  ];
+  ]);
+  const [dataUserId, setDataUserId] = React.useState(8);
+  const height = useHeaderHeight();
+  /*const messages = [
+    {
+      userId: "user1",
+      content:
+        "Lorem Ipsum is mot simply dummy text of the printing and typesetting industry.",
+    },
+    {
+      userId: "user2",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    },
+  ];*/
 
   type messageItem = { content: string };
 
@@ -35,20 +46,43 @@ function Chat() {
     console.log("Message sent");
     console.log(messageContent);
 
-    const newDataUserId = setDataUserId(1 + dataUserId);
+    setDataUserId(1 + dataUserId);
+
+    /*messages.push({
+      userId: "user" + dataUserId,
+      content: messageContent,
+    });*/
 
     messages.push({
-      userId: "user" + newDataUserId,
+      userId: "user1",
       content: messageContent,
     });
+
+    console.log(messages);
+
+    setMessages(messages);
+
+    setTimeout(() => {
+      simulateMessageResponse();
+    }, 100);
+  }
+
+  function simulateMessageResponse() {
+    messages.push({
+      userId: "user2",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    });
+
+    setMessages(messages);
   }
 
   return (
-    <SafeAreaView className="flex-1">
+    <View className={"h-screen justify-end"}>
       <KeyboardAvoidingView
-        className="w-[100%] flex-1 absolute bottom-0 border-2 border-black rounded-md"
-        behavior="position"
-        keyboardVerticalOffset={height - 60}
+        className="border-2 border-black rounded-md"
+        behavior="padding"
+        keyboardVerticalOffset={100}
       >
         <FlatList
           data={messages}
@@ -74,9 +108,12 @@ function Chat() {
               </View>
             );
           }}
-          keyExtractor={(item) => item.userId}
         />
-        <View className="w-[97%] self-center flex-row bg-commonWhite mb-5 rounded-xl border-[1px] border-black">
+        <View
+          className={
+            "w-[97%] mb-14 self-center flex-row bg-commonWhite mb-5 rounded-xl border-[1px] border-black"
+          }
+        >
           <TextInput
             ref={textInputRef}
             placeholder="Type a message"
@@ -86,7 +123,10 @@ function Chat() {
             value={messageContent}
             onChangeText={setMessageContent}
           />
-          <Pressable onPress={handleSendMessage} className={"self-center"}>
+          <Pressable
+            onPress={handleSendMessage}
+            className={"self-center p-1 mr-3"}
+          >
             <Ionicons
               name="paper-plane-outline"
               size={24}
@@ -95,7 +135,7 @@ function Chat() {
           </Pressable>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 }
 

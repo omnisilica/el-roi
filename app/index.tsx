@@ -138,9 +138,6 @@ function Index() {
           </Link>
           {"."}
         </Text>
-        <Link href="./Sandbox" className="text-[#3366cc] font-bold">
-          Chat
-        </Link>
       </View>
     </View>
   );
