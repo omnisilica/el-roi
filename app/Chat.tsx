@@ -78,7 +78,7 @@ function Chat() {
   }
 
   return (
-    <View className={"h-screen justify-end"}>
+    <View className={"bg-commongWhite h-screen justify-end"}>
       <KeyboardAvoidingView
         className="border-2 border-black rounded-md"
         behavior="padding"
@@ -95,16 +95,16 @@ function Chat() {
                   (isCurrentUser ? "mr-1 self-end" : "ml-1 self-start")
                 }
               >
-                <Text
+                <View
                   className={
-                    "p-2 mb-3 rounded-xl " +
+                    "p-3 mb-3 rounded-xl " +
                     (isCurrentUser
-                      ? "bg-[rgba(0,122,255,1)]"
-                      : "bg-[rgba(230,230,230,1)]")
+                      ? "bg-[rgba(0,79,189,1)]"
+                      : "bg-[rgba(82,82,86,1)]")
                   }
                 >
-                  {item.content}
-                </Text>
+                  <Text className={"text-commonWhite"}>{item.content}</Text>
+                </View>
               </View>
             );
           }}

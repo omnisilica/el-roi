@@ -137,12 +137,12 @@ function Index() {
             Sign Up
           </Link>}} */}
           <Link
-            href="./chatrooms"
+            href="./requests"
             className="text-[#3366cc] font-bold"
             accessible={true}
             accessibilityLabel="Sign up for an account"
           >
-            Sign Up
+            Requests
           </Link>
           {"."}
         </Text>
