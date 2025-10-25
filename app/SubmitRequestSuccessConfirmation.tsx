@@ -32,7 +32,7 @@ function SubmitRequestSuccessConfirmation() {
             you want us to send you an email confirmation also?
           </Text>
         </View>
-        <Link href="./Dashboard" asChild>
+        <Link href="./dashboard" asChild>
           <Pressable className="bg-[rgba(0,128,0,1)] h-14 w-3/6 mt-6 mb-3 m-auto items-center justify-center rounded-md">
             <Text className="text-base text-commonWhite">
               Back to Dashboard

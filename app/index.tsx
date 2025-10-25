@@ -105,7 +105,7 @@ function Index() {
         />
       </View>
       <View className="w-11/12 items-center m-auto my-7">
-        <Link href="./LogIn" asChild>
+        <Link href="./logIn" asChild>
           <Pressable className="bg-commonWhite h-14 w-[100%] items-center justify-center rounded">
             <Text className=" text-ccgcBlue text-lg">LOG IN</Text>
           </Pressable>
@@ -117,7 +117,7 @@ function Index() {
           </View>
           <View className="flex-1 h-[1] bg-black"></View>
         </View>
-        <Link href="./SubmitRequest" asChild>
+        <Link href="./submitRequest" asChild>
           <Pressable className="bg-transparent h-14 w-[100%] items-center justify-center rounded border-2 border-ccgcBlue">
             <Text className="text-lg text-ccgcBlue p-0 m-0">
               SUBMIT A REQUEST
@@ -128,8 +128,16 @@ function Index() {
       <View className="bg-white h-20 w-full absolute bottom-0 justify-center items-center rounded-t-full">
         <Text className="text-lg text-homePageText">
           Don&#39;t have an account?{" "}
+          {/* {{<Link
+            href="./signUp"
+            className="text-[#3366cc] font-bold"
+            accessible={true}
+            accessibilityLabel="Sign up for an account"
+          >
+            Sign Up
+          </Link>}} */}
           <Link
-            href="./SignUp"
+            href="./chatrooms"
             className="text-[#3366cc] font-bold"
             accessible={true}
             accessibilityLabel="Sign up for an account"
