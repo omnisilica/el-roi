@@ -6,7 +6,8 @@ function Dashboard() {
   return (
     <View>
       <Text>Dashboard Under Construction</Text>
-      <Link href="./chatrooms.tsx">My Messages</Link>
+      <Link href={"./chatrooms.tsx"}>My Messages</Link>
+      <Link href={"/submitRequest"}></Link>
     </View>
   );
 }

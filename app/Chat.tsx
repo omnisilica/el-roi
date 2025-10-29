@@ -1,7 +1,10 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useHeaderHeight } from "@react-navigation/elements";
+import { Link } from "expo-router";
 import React from "react";
 import {
+  Button,
   FlatList,
   KeyboardAvoidingView,
   Pressable,
@@ -12,6 +15,7 @@ import {
 
 function Chat() {
   const textInputRef = React.useRef<TextInput>(null);
+  const panelRef = React.useRef<Button>(null);
   const [messageContent, setMessageContent] = React.useState("");
   const [messages, setMessages] = React.useState([
     {
@@ -78,7 +82,7 @@ function Chat() {
   }
 
   return (
-    <View className={"bg-commongWhite h-screen justify-end"}>
+    <View className="bg-[rgba(1,1,1,1)] flex-1 justify-end">
       <KeyboardAvoidingView
         className="border-2 border-black rounded-md"
         behavior="padding"
@@ -135,6 +139,20 @@ function Chat() {
           </Pressable>
         </View>
       </KeyboardAvoidingView>
+      <View
+        className={
+          "bg-commonWhite h-[60] flex-row items-center justify-end mr-3"
+        }
+      >
+        <Link href={"/request"} className={"flex-row items-center"}>
+          <Text className={"text-lg text-[rgba(34,87,99,1)]"}>
+            View Judy Joe&lsquo;s Request
+          </Text>
+        </Link>
+        <Link href={"/request"} className={"text-[rgba(34,87,99,1)]"}>
+          <MaterialIcons name="arrow-forward-ios" size={20} className={""} />
+        </Link>
+      </View>
     </View>
   );
 }
