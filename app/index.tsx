@@ -128,21 +128,13 @@ function Index() {
       <View className="bg-white h-20 w-full absolute bottom-0 justify-center items-center rounded-t-full">
         <Text className="text-lg text-homePageText">
           Don&#39;t have an account?{" "}
-          {/* {{<Link
+          <Link
             href="./signUp"
             className="text-[#3366cc] font-bold"
             accessible={true}
             accessibilityLabel="Sign up for an account"
           >
             Sign Up
-          </Link>}} */}
-          <Link
-            href="./requests"
-            className="text-[#3366cc] font-bold"
-            accessible={true}
-            accessibilityLabel="Sign up for an account"
-          >
-            Chat
           </Link>
           {"."}
         </Text>
