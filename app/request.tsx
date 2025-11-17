@@ -1,7 +1,40 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Pressable, ScrollView, Text, View } from "react-native";
 
 function Request() {
+  type RequestResolvedDetails = {
+    firstName: string;
+    email: string;
+    title: string;
+    country: string;
+    state: string;
+    city: string;
+    zipCode: string;
+    addressLine1: string;
+    addressLine2: string;
+    request: string;
+  };
+  const { handleSubmit } = useForm<RequestResolvedDetails>({
+    defaultValues: {
+      firstName: "",
+      email: "",
+      title: "",
+      country: "",
+      state: "",
+      city: "",
+      zipCode: "",
+      addressLine1: "",
+      addressLine2: "",
+      request: "",
+    },
+  });
+
+  const onResolveRequest: SubmitHandler<RequestResolvedDetails> = async (
+    data
+  ) => {
+    console.log(data);
+  };
   return (
     <ScrollView>
       <View className={"items-center pb-12"}>
@@ -56,6 +89,11 @@ function Request() {
             Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
             sit amet..&quot;, comes from a line in section 1.10.32.
           </Text>
+        </View>
+        <View className="bg-ccgcBlue h-14 w-11/12 mt-6 m-auto items-center justify-center rounded-md">
+          <Pressable onPress={handleSubmit(onResolveRequest)}>
+            <Text className="text-commonWhite text-lg">Request Resolved</Text>
+          </Pressable>
         </View>
       </View>
     </ScrollView>
