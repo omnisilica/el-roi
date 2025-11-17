@@ -1,6 +1,10 @@
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { router } from "expo-router";
 import React from "react";
 import {
   LayoutChangeEvent,
+  Pressable,
   ScrollView,
   Text,
   TouchableOpacity,
@@ -92,69 +96,383 @@ import { SceneMap, TabView } from "react-native-tab-view";
 
 // export default Dashboard;
 
-const ActiveRequests = () => (
-  <ScrollView className={"bg-red-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Red</Text>
+const ActiveRequests = () => {
+  //
+  function handleClickChatroom() {
+    router.navigate("/chat");
+  }
+  return (
+    <View className={/*"bg-red-500*/ "h-full bg-ccgcBlueLight"}>
+      {/* <ScrollView
+        className={
+          "bg-red-400 w-11/12 self-center max-h-[90%] rounded-md m-auto"
+        }
+      >
+        <Text>Red</Text>
+      </ScrollView> */}
+
+      <View
+        className={
+          /*"bg-red-400 */ "bg-commonWhite w-11/12 h-[90%] rounded-md m-auto justify-center"
+        }
+      >
+        <Ionicons
+          name="file-tray-sharp"
+          size={72}
+          color="gray"
+          className="self-center"
+        />
+      </View>
     </View>
-  </ScrollView>
-);
+  );
+};
 
 const PendingRequests = () => (
-  <ScrollView className={"bg-green-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Green</Text>
-    </View>
-  </ScrollView>
+  <View className={/*bg-green-500 */ "bg-ccgcBlueLight h-full"}>
+    <ScrollView
+      className={
+        /*bg-red-400 */ "bg-commonWhite w-11/12 max-h-[90%] pb-12 rounded-md m-auto"
+      }
+    >
+      <View className={"items-center pb-12"}>
+        <View className="w-11/12">
+          <Text className={"text-3xl font-bold my-2"}>
+            Judy Joe&lsquo;s Request
+          </Text>
+          <View className="flex-row items-center mb-3">
+            <Text className={"text-[20px]"}>Judy Joe</Text>
+            <View className="flex-1 items-end">
+              <Text className={"text-lg self-end"}>3 days ago</Text>
+            </View>
+          </View>
+
+          <Text className={"text-lg"}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </Text>
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+  </View>
 );
 
-const PreviousRequests = () => (
-  <ScrollView className={"bg-blue-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Blue</Text>
+const PreviousRequests = () => {
+  function handleClickChatroom() {
+    router.navigate("/chat");
+  }
+  return (
+    <View className={/*"bg-blue-500 */ " bg-ccgcBlueLight h-full"}>
+      <ScrollView
+        className={
+          /*"bg-red-400 */ "bg-commonWhite w-11/12 max-h-[90%] rounded-md m-auto"
+        }
+      >
+        <View className={"bg-commonWhite"}>
+          <Pressable
+            className={"flex-row p-4 border-b-[1px] border-black"}
+            onPress={handleClickChatroom}
+          >
+            <View className={"w-1/12"}>
+              <FontAwesome name="dot-circle-o" size={20} color="red" />
+            </View>
+            <View className={"w-11/12"}>
+              <View className={"flex-row"}>
+                <Text className={"text-xl font-bold self-start"}>Jon</Text>
+                <View className={"flex-1 items-end"}>
+                  <Text className={"text-lg"}>8:42 AM</Text>
+                </View>
+              </View>
+              <Text className={"text-xl"}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry...
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
-  </ScrollView>
-);
+  );
+};
 
 const CurrentRequests = () => (
-  <ScrollView className={"bg-yellow-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Yellow</Text>
-    </View>
-  </ScrollView>
+  <View className={/*"bg-yellow-500 */ " bg-ccgcBlueLight h-full"}>
+    <ScrollView
+      className={
+        /*"bg-red-400 */ "bg-commonWhite w-11/12 max-h-[90%] pb-12 rounded-md m-auto"
+      }
+    >
+      <View className={"items-center pb-12"}>
+        <View className="w-11/12">
+          <Text className={"text-3xl font-bold my-2"}>
+            Judy Joe&lsquo;s Request
+          </Text>
+          <View className="flex-row items-center mb-3">
+            <Text className={"text-[20px]"}>Judy Joe</Text>
+            <View className="flex-1 items-end">
+              <Text className={"text-lg self-end"}>3 days ago</Text>
+            </View>
+          </View>
+
+          <Text className={"text-lg"}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </Text>
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+  </View>
 );
 
-const CompletedRequests = () => (
-  <ScrollView className={"bg-indigo-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Indigo</Text>
+const CompletedRequests = () => {
+  function handleClickChatroom() {
+    router.navigate("/chat");
+  }
+  return (
+    <View className={/*"bg-indigo-500 */ " bg-ccgcBlueLight h-full"}>
+      <ScrollView
+        className={
+          /*"bg-red-400 */ "bg-commonWhite w-11/12 max-h-[90%] rounded-md m-auto"
+        }
+      >
+        <View className={"bg-commonWhite"}>
+          <Pressable
+            className={"flex-row p-4 border-b-[1px] border-black"}
+            onPress={handleClickChatroom}
+          >
+            <View className={"w-1/12"}>
+              <FontAwesome name="dot-circle-o" size={20} color="red" />
+            </View>
+            <View className={"w-11/12"}>
+              <View className={"flex-row"}>
+                <Text className={"text-xl font-bold self-start"}>Jon</Text>
+                <View className={"flex-1 items-end"}>
+                  <Text className={"text-lg"}>8:42 AM</Text>
+                </View>
+              </View>
+              <Text className={"text-xl"}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry...
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
-  </ScrollView>
-);
+  );
+};
 
 const RequestsInReview = () => (
-  <ScrollView className={"bg-purple-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Purple</Text>
-    </View>
-  </ScrollView>
+  <View className={/*"bg-purple-500 */ "bg-ccgcBlueLight h-full"}>
+    <ScrollView
+      className={
+        /*"bg-red-400 */ "bg-commonWhite w-11/12 max-h-[90%] pb-12 rounded-md m-auto"
+      }
+    >
+      <View className={"items-center pb-12"}>
+        <View className="w-11/12">
+          <Text className={"text-3xl font-bold my-2"}>
+            Judy Joe&lsquo;s Request
+          </Text>
+          <View className="flex-row items-center mb-3">
+            <Text className={"text-[20px]"}>Judy Joe</Text>
+            <View className="flex-1 items-end">
+              <Text className={"text-lg self-end"}>3 days ago</Text>
+            </View>
+          </View>
+
+          <Text className={"text-lg"}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+          </Text>
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+
+          <Text className={"text-lg my-2"}>
+            Contrary to popular belief, Lorem Ipsum is not simply random text.
+            It has roots in a piece of classical Latin literature from 45 BC,
+            making it over 2000 years old. Richard McClintock, a Latin professor
+            at Hampden-Sydney College in Virginia, looked up one of the more
+            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
+            going through the cites of the word in classical literature,
+            discovered the undoubtable source. Lorem Ipsum comes from sections
+            1.10.32 and 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;
+            (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+            book is a treatise on the theory of ethics, very popular during the
+            Renaissance. The first line of Lorem Ipsum, &quot;Lorem ipsum dolor
+            sit amet..&quot;, comes from a line in section 1.10.32.
+          </Text>
+        </View>
+      </View>
+    </ScrollView>
+  </View>
 );
 
-const ReviewedRequests = () => (
-  <ScrollView className={"bg-pink-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Pink</Text>
+const ReviewedRequests = () => {
+  function handleClickChatroom() {
+    router.navigate("/chat");
+  }
+  return (
+    <View className={/*"bg-pink-500 */ "bg-ccgcBlueLight h-full"}>
+      <ScrollView
+        className={
+          /*"bg-red-400 */ "bg-commonWhite w-11/12 self-center max-h-[90%] rounded-md m-auto"
+        }
+      >
+        <View className={"bg-commonWhite"}>
+          <Pressable
+            className={"flex-row p-4 border-b-[1px] border-black"}
+            onPress={handleClickChatroom}
+          >
+            <View className={"w-1/12"}>
+              <FontAwesome name="dot-circle-o" size={20} color="red" />
+            </View>
+            <View className={"w-11/12"}>
+              <View className={"flex-row"}>
+                <Text className={"text-xl font-bold self-start"}>Jon</Text>
+                <View className={"flex-1 items-end"}>
+                  <Text className={"text-lg"}>8:42 AM</Text>
+                </View>
+              </View>
+              <Text className={"text-xl"}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry...
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
-  </ScrollView>
-);
+  );
+};
 
-const FinishedRequests = () => (
-  <ScrollView className={"bg-gray-500"}>
-    <View className={"bg-red-400 w-11/12 self-center"}>
-      <Text>Gray</Text>
+const FinishedRequests = () => {
+  function handleClickChatroom() {
+    router.navigate("/chat");
+  }
+  return (
+    <View className={/*"bg-gray-500 */ "bg-ccgcBlueLight h-full"}>
+      <ScrollView
+        className={
+          /*"bg-red-400 */ "bg-commonWhite w-11/12 self-center max-h-[90%] rounded-md m-auto"
+        }
+      >
+        <View className={"bg-commonWhite"}>
+          <Pressable
+            className={"flex-row p-4 border-b-[1px] border-black"}
+            onPress={handleClickChatroom}
+          >
+            <View className={"w-1/12"}>
+              <FontAwesome name="dot-circle-o" size={20} color="red" />
+            </View>
+            <View className={"w-11/12"}>
+              <View className={"flex-row"}>
+                <Text className={"text-xl font-bold self-start"}>Jon</Text>
+                <View className={"flex-1 items-end"}>
+                  <Text className={"text-lg"}>8:42 AM</Text>
+                </View>
+              </View>
+              <Text className={"text-xl"}>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry...
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
-  </ScrollView>
-);
+  );
+};
 
 const SecondRoute = () => <View style={{ flex: 1, backgroundColor: "blue" }} />;
 
@@ -307,11 +625,13 @@ export default function Dashboard() {
   };
 
   return (
-    <>
-      <View className="bg-green-500 items-center">
-        <View className="bg-green-100 w-11/12">
-          <Text>Dashboard</Text>
-          <Text>Thursday, Jan 01, 2026</Text>
+    <View className="h-full bg-[rgba(54,138,156,0.1)]">
+      <View className="bg-ccgcBlueLight items-center">
+        <View className="bg-commonWhite w-11/12 p-2">
+          <Text className="text-2xl font-semibold">
+            Jacob&lsquo;s Dashboard
+          </Text>
+          <Text className="text-lg">Thursday, Jan 01, 2026</Text>
         </View>
       </View>
       <TabView
@@ -346,43 +666,45 @@ export default function Dashboard() {
               animated: true,
             });
             console.log(scrollViewRef);
-            scrollViewRef.current?.scrollToEnd();
           };
           return (
-            <ScrollView
-              horizontal
-              // ref={handleRef}
-              ref={scrollViewRef}
-              className={"bg-purple-100 w-11/12 max-h-14 self-center"}
-            >
-              {routes.map((route: any, i: number) => {
-                return (
-                  <TouchableOpacity
-                    key={route.key}
-                    onPress={() => {
-                      handleOnPress(route);
-                    }}
-                    className={"self-center"}
-                    // onLayout={onLayoutHandler}
-                    onLayout={(event) => {
-                      const tab = event.nativeEvent.layout;
-                      coordinate[route.key] = tab.x;
-                      // console.log("tab ", tab);
-                    }}
-                  >
-                    <View
-                      className={
-                        "p-3" + (index === i ? " border-b-2 border-black" : "")
-                      }
+            <View className="bg-ccgcBlueLight h-14">
+              <ScrollView
+                horizontal
+                // ref={handleRef}
+                ref={scrollViewRef}
+                className={"bg-commonWhite w-11/12 self-center rounded-b-md"}
+              >
+                {routes.map((route: any, i: number) => {
+                  return (
+                    <TouchableOpacity
+                      key={route.key}
+                      onPress={() => {
+                        handleOnPress(route);
+                      }}
+                      className={"self-center"}
+                      // onLayout={onLayoutHandler}
+                      onLayout={(event) => {
+                        const tab = event.nativeEvent.layout;
+                        coordinate[route.key] = tab.x;
+                        // console.log("tab ", tab);
+                      }}
                     >
-                      {/* <View className="p-3 border-b-2"> */}
-                      {/* <Text>{index}</Text> */}
-                      <Text className={"text-xl"}>{route.title}</Text>
-                    </View>
-                  </TouchableOpacity>
-                );
-              })}
-            </ScrollView>
+                      <View
+                        className={
+                          "p-3" +
+                          (index === i ? " border-b-2 border-black" : "")
+                        }
+                      >
+                        {/* <View className="p-3 border-b-2"> */}
+                        {/* <Text>{index}</Text> */}
+                        <Text className={"text-xl"}>{route.title}</Text>
+                      </View>
+                    </TouchableOpacity>
+                  );
+                })}
+              </ScrollView>
+            </View>
           );
         }}
         // renderTabBar={() => {
@@ -390,7 +712,7 @@ export default function Dashboard() {
         // }}
       />
       {/* <DashboardTabView /> */}
-    </>
+    </View>
   );
 }
 

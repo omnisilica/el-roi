@@ -7,7 +7,7 @@ function Request() {
       <View className={"items-center pb-12"}>
         <View className="w-11/12">
           <Text className={"text-3xl font-bold my-2"}>
-            Request Page Under Construction
+            Judy Joe&lsquo;s Request
           </Text>
           <View className="flex-row items-center mb-3">
             <Text className={"text-[20px]"}>Judy Joe</Text>
