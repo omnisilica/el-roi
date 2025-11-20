@@ -85,12 +85,12 @@ function SubmitRequest() {
     const result = await postRequestDetails(data);
     setIsSuccessfullySubmitted(result.success);
     setTimeout(() => {
-      router.navigate("./SubmitRequestSuccessConfirmation");
+      router.navigate("./submitRequestSuccessConfirmation");
     }, 1200);
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={100}>
+    <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={150}>
       <ScrollView>
         {/* Title, Address*/}
         <View className="w-11/12 m-auto mt-8">
