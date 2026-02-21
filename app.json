@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "el-roi",
+    "name": "El Roi",
     "slug": "el-roi",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,10 +15,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/splash-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "org.ccgc.elroi"
     },
     "web": {
       "bundler": "metro",
